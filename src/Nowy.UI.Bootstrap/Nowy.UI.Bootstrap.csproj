@@ -1,0 +1,68 @@
+<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <Import Project="..\shared\Shared.props" />
+  <Import Project="..\shared\Shared.targets" />
+  <Import Project="..\shared\Webpack.props" />
+  <Import Project="..\shared\Webpack.targets" />
+
+  <ItemGroup>
+    <SupportedPlatform Include="browser" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Havit.Blazor.Components.Web.Bootstrap" Version="4.1.1" />
+    <PackageReference Include="MudBlazor" Version="6.9.0" />
+    <PackageReference Include="Telerik.UI.for.Blazor" Version="4.5.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Using Include="System.Collections.ObjectModel" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="resources\thirdparty" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Nowy.UI.Common\Nowy.UI.Common.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="wwwroot\output\0ea1fc6cdcdbe7abf623.woff2" />
+    <_ContentIncludedByDefault Remove="wwwroot\output\2442644a7a4429aaf45b.eot" />
+    <_ContentIncludedByDefault Remove="wwwroot\output\26228a55e00d47cc7ca2.svg" />
+    <_ContentIncludedByDefault Remove="wwwroot\output\3e1e7fadbeeea08d11e5.woff2" />
+    <_ContentIncludedByDefault Remove="wwwroot\output\42125a176cf7bfb24819.woff" />
+    <_ContentIncludedByDefault Remove="wwwroot\output\66104b766c3d0462b3c5.woff2" />
+    <_ContentIncludedByDefault Remove="wwwroot\output\74f12de10e15e784fb55.ttf" />
+    <_ContentIncludedByDefault Remove="wwwroot\output\7f224b54c9aa6dcea763.ttf" />
+    <_ContentIncludedByDefault Remove="wwwroot\output\a09e19a26c69d41759b6.eot" />
+    <_ContentIncludedByDefault Remove="wwwroot\output\a20ebdc2830d7db8d98f.woff" />
+    <_ContentIncludedByDefault Remove="wwwroot\output\b48ad290d0335879a92b.ttf" />
+    <_ContentIncludedByDefault Remove="wwwroot\output\bff1e040a7ef4f0d0b47.otf" />
+    <_ContentIncludedByDefault Remove="wwwroot\output\bundle-lr-bootstrap5-fluentui.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\output\bundle-lr-bootstrap5-fluentui.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\output\bundle-lr-bootstrap5.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\output\bundle-lr-bootstrap5.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\output\bundle-nowy-bootstrap5-fluentui.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\output\bundle-nowy-bootstrap5-fluentui.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\output\bundle-nowy-bootstrap5.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\output\bundle-nowy-bootstrap5.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\output\bundle-ts-bootstrap5-fluentui.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\output\bundle-ts-bootstrap5-fluentui.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\output\bundle-ts-bootstrap5.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\output\bundle-ts-bootstrap5.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\output\e1a247a5ef41e1975742.woff2" />
+    <_ContentIncludedByDefault Remove="wwwroot\output\f9ee61fab3c11e2f3ed3.ttf" />
+    <_ContentIncludedByDefault Remove="wwwroot\output\init.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\output\init.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\output\_NodeCompile.stamp" />
+  </ItemGroup>
+
+</Project>

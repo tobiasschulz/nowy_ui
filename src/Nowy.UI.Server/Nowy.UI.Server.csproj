@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <AddRazorSupportForMvc>true</AddRazorSupportForMvc>
+    <BlazorWebAssemblyOmitDebugProxyOutput>true</BlazorWebAssemblyOmitDebugProxyOutput>
+  </PropertyGroup>
+
+  <Import Project="..\shared\Shared.props" />
+  <Import Project="..\shared\Shared.targets" />
+
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="7.0.10" />
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="7.0.10" />
+    <PackageReference Include="Nowy.Database.Contract" Version="1.0.2.230902050" />
+    <PackageReference Include="Nowy.Database.Common" Version="1.0.2.230902050" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Nowy.UI.Common\Nowy.UI.Common.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Using Include="System.Collections.ObjectModel" />
+    <Using Include="Nowy.Standard" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,98 @@
+@using Nowy.UI.Common.Models
+<HxNavbar Expand="NavbarExpand.Always" ColorMode="ColorMode.Light" Color="ThemeColor.None">
+    <HxNavbarBrand>
+        <img src="@(BrandIconUrl)"
+             alt="Logo"
+             class="d-inline-block align-text-top"
+             style="
+                     height: 36px;
+                     position: relative;
+                 "/>
+        <span class="d-none d-md-inline-block ms-3">
+            @(BrandTitle)
+        </span>
+
+        @(BrandContent)
+    </HxNavbarBrand>
+
+    <HxNav CssClass="m-0">
+        @if (Menu is {} menu1)
+        {
+            foreach (NxBaseMenuItemModel item1 in menu1.Items ?? Array.Empty<NxMenuItemModel>())
+            {
+                @if (item1 is not NxMenuModel menu2)
+                {
+                    <HxNavLink Href="@(item1.LinkUrl)" Match="NavLinkMatch.All">
+                        @(item1.Title)
+                    </HxNavLink>
+                }
+                else
+                {
+                    <HxDropdown>
+                        <HxDropdownToggleElement ElementName="a" Caret="true" role="button">
+                            @(menu2.Title)
+                        </HxDropdownToggleElement>
+                        <HxDropdownMenu CssClass="dropdown-menu-end">
+                            @foreach (NxBaseMenuItemModel item2 in menu2.Items ?? Array.Empty<NxMenuItemModel>())
+                            {
+                                @if (item2 is not NxMenuModel menu3)
+                                {
+                                    <HxDropdownItemNavLink Href="@(item2.LinkUrl)" Match="NavLinkMatch.All">
+                                        @(item2.Title)
+                                    </HxDropdownItemNavLink>
+                                }
+                                else
+                                {
+                                    <HxDropdown>
+                                        <HxDropdownToggleElement ElementName="a" Caret="true" role="button">
+                                            @(menu3.Title)
+                                        </HxDropdownToggleElement>
+                                        <HxDropdownMenu CssClass="dropdown-submenu dropdown-menu-end">
+                                            @foreach (NxBaseMenuItemModel item3 in menu3.Items ?? Array.Empty<NxMenuItemModel>())
+                                            {
+                                                @if (item3 is not NxMenuModel menu4)
+                                                {
+                                                    <HxDropdownItemNavLink Href="@(item3.LinkUrl)" Match="NavLinkMatch.All">
+                                                        @(item3.Title)
+                                                    </HxDropdownItemNavLink>
+                                                }
+                                                else
+                                                {
+                                                    <HxDropdown>
+                                                        <HxDropdownToggleElement ElementName="a" Caret="true" role="button">
+                                                            @(menu4.Title)
+                                                        </HxDropdownToggleElement>
+                                                    </HxDropdown>
+                                                }
+                                            }
+                                        </HxDropdownMenu>
+                                    </HxDropdown>
+                                }
+                            }
+                        </HxDropdownMenu>
+                    </HxDropdown>
+                }
+            }
+            //HxDropdownDivider
+        }
+    </HxNav>
+</HxNavbar>
+
+<div class="navbar-space"></div>
+
+
+@code {
+
+    [Parameter]
+    public RenderFragment? BrandContent { get; set; }
+
+    [Parameter]
+    public string? BrandIconUrl { get; set; }
+
+    [Parameter]
+    public string? BrandTitle { get; set; }
+
+    [Parameter]
+    public NxMenuModel? Menu { get; set; }
+
+}

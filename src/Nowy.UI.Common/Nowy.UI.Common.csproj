@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <Import Project="..\shared\Shared.props" />
+  <Import Project="..\shared\Shared.targets" />
+  <Import Project="..\shared\Webpack.props" />
+  <Import Project="..\shared\Webpack.targets" />
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="7.0.10" />
+    <PackageReference Include="Nowy.Standard" Version="7.1.4157.230902052" />
+    <PackageReference Include="Nowy.Standard" Version="7.1.4157.230830945" />
+    <PackageReference Include="Havit.Blazor.Components.Web.Bootstrap" Version="4.1.1" />
+    <PackageReference Include="Telerik.UI.for.Blazor" Version="4.5.0" />
+    <PackageReference Include="MudBlazor" Version="6.9.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Using Include="System.Collections.ObjectModel" />
+    <Using Include="Nowy.Standard" />
+  </ItemGroup>
+
+</Project>

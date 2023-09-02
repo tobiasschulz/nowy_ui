@@ -1,0 +1,14 @@
+/*
+  HxSidebarItem
+  NxSidebarItem
+ */
+
+.nav-link, .hx-sidebar-subitems.collapse .nav-link {
+    border-radius: var(--bs-btn-border-radius);
+}
+
+.nav-link.active, .hx-sidebar-subitems.collapse .nav-link.active {
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+    color: white;
+}

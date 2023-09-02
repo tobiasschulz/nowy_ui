@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+@using System.Reflection
+@using System.Linq
+@using Nowy.UI.Common.Services
+@using Nowy.UI.Server.Services
+@model Nowy.UI.Server.Views.Home.IndexBlazorWebAssembly
+@inject IEnumerable<IWebAssetReferenceService> _web_asset_reference_services
+@inject StartupTimeService _startup_time_service
+@inject BlazorDefaultWebAssetReferenceService _blazor_default_web_asset_reference_service
+
+@* ReSharper disable Html.PathError *@
+
+@{
+    Layout = null;
+
+    // @Html.Raw(content_until_head_end)
+}
+
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <title>@(_blazor_default_web_asset_reference_service.InitialPageTitle)</title>
+    <base href="/"/>
+
+    <link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest" crossorigin="use-credentials">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- <link href="_content/Microsoft.Fast.Components.FluentUI/css/reboot.css" rel="stylesheet"/> -->
+
+    @foreach (CssReference css_ref in _web_asset_reference_services.SelectMany(o => o.GetCssPaths()).OrderBy(o => o.order))
+    {
+        <link href="@(Model.AppendStartTime(css_ref.path))" rel="stylesheet"/>
+    }
+
+</head>
+
+<body>
+<div id="app">
+    <svg class="loading-progress">
+        <circle r="40%" cx="50%" cy="50%"/>
+        <circle r="40%" cx="50%" cy="50%"/>
+    </svg>
+    <div class="loading-progress-text"></div>
+</div>
+
+<div id="blazor-error-ui">
+    An unhandled error has occurred.
+    <a href="" class="reload">Reload</a>
+    <a class="dismiss">🗙</a>
+</div>
+
+<script src="_framework/blazor.webassembly.js"></script>
+
+@foreach (JavascriptReference js_ref in _web_asset_reference_services.SelectMany(o => o.GetJavascriptPaths()).OrderBy(o => o.order))
+{
+    <script src="@(Model.AppendStartTime(js_ref.path))" @(js_ref.defer ? "defer" : "")></script>
+}
+
+
+</body>
+
+</html>
